@@ -74,6 +74,7 @@ $(go env GOPATH)/src/github.com/{dsv}
 
 - ❗ Install golang with caution, follow [this](https://www.digitalocean.com/community/tutorials/how-to-install-go-on-ubuntu-18-04) and make sure go installation is at `/usr/local` 
 
+
 #### 4. Run `make run-server`, if yields error, proceed through next to step, otherwise skip to [step 6](#6-link-dist-amp-client-as-specified-in-step-5-at-mattermosts-dev-webapp-setup-guide)
 
 #### 5. Install go dep:
@@ -114,6 +115,8 @@ MM server|`make run-server` fails and outputs `Error starting userland proxy: li
 MM server|`make: go: command not found` (on `make run`)|go’s path conflict between `/usr/local/go` and `usr/local/bin/go`|?|[Command Go not found](https://askubuntu.com/questions/1092589/command-go-not-found),[Go installation Ubuntu](https://tecadmin.net/install-go-on-ubuntu/)
 MM server|`/gitlab connect` yields `The redirect URI included is not valid`|?|change “System Console\Web Server\Site URL” to exclude end backslash (\\)|[Gitlab-mattermost repo issue #84](https://gitlab.com/gitlab-org/gitlab-mattermost/issues/84)
 MM server|`gitlab[/github] subscribe …` yields `Unable to retreive informations`|- gitlab/github OAuth app of private repo does not give access for MM, or<br/>- repo name is not correct|Modify access given in OAuth app settings
+MM server|`make run-server` fails and outputs `cant found github.com/mattermost/mattermost-server/cmd/mattermost/commands`|folder path is not correct|change path to `go/src/mattermost/mattermost-server`
+MM Server|`make run-server` fails and outputs `Failed to ping DB retrying in 10 seconds err=dial tcp: lookup dockerhost: no such host`|alias for 127.0.0.1 must be dockerhost instead localhost|go to `/etc/hosts` and change alias to dockerhost|[Lookup dockerhost issue](https://forum.mattermost.org/t/solved-build-error-server-not-connecting-to-dockerhost/5303/4)
 
 <br/>
 <br/>
