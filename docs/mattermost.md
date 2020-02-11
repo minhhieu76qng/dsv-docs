@@ -109,6 +109,7 @@ For more `make` commands, see [MM's Dev Server Workflow Guide](https://developer
 
 Repo|Description|Reason(s)|Solution(s)|Resources
 ---|---|---|---|---
+MM webapp|`make test` fails and output `Received value does not match stored snapshot "components/admin_console/jobs/table should match snapshot, init 1".`|Testing result not match with snapshot file at `components/admin_console/jobs/table`|Change hour in snapshot from `5` to `05`
 MM webapp|HTTP 404 on `npm install node-sass`|node-sass v.4.11.x [does not support](https://github.com/sass/node-sass/releases) node >12.0 on linux system|- revert node back to support versions, or<br/> - update node-sass to support newer node?|[Node-sass troubleshooting](https://github.com/sass/node-sass/blob/master/TROUBLESHOOTING.md#404-downloading-bindingnode-file)
 MM webapp|401 unauthorized response/ JS infinite loop -> browser not responding|user’s credentials are cached|- perform hard reload, if not resolved:<br/>- clear cache manually through browser settings
 MM server|`make run-server` fails and outputs `Error starting userland proxy: listen tcp0.0.0.0:3306: bind: address already in use.`|Mysql server running on same port|- uninstall mysql, or<br/>- reconfigure mysql server(?), or<br/>- stop mysql service(?)|[Stackoverflow](https://stackoverflow.com/questions/37896369/error-starting-userland-proxy-listen-tcp0-0-0-03306-bind-address-already-in), [Mattermost docs](https://docs.mattermost.com/developer/dev-setup-troubleshooting.html)
@@ -117,6 +118,8 @@ MM server|`/gitlab connect` yields `The redirect URI included is not valid`|?|ch
 MM server|`gitlab[/github] subscribe …` yields `Unable to retreive informations`|- gitlab/github OAuth app of private repo does not give access for MM, or<br/>- repo name is not correct|Modify access given in OAuth app settings
 MM server|`make run-server` fails and outputs `cant found github.com/mattermost/mattermost-server/cmd/mattermost/commands`|folder path is not correct|change path to `go/src/mattermost/mattermost-server`
 MM Server|`make run-server` fails and outputs `Failed to ping DB retrying in 10 seconds err=dial tcp: lookup dockerhost: no such host`|alias for 127.0.0.1 must be dockerhost instead localhost|go to `/etc/hosts` and change alias to dockerhost|[Lookup dockerhost issue](https://forum.mattermost.org/t/solved-build-error-server-not-connecting-to-dockerhost/5303/4)
+MM Server|`make run-server` fails and outputs ``|MySQL service is running and using port 3306|Turn off mysql service `service mysql stop`
+
 
 <br/>
 <br/>
