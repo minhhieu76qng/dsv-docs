@@ -15,6 +15,10 @@
 
 ### 1. Follow steps 1 - 14 at [Upgrading to the Latest Version](https://docs.mattermost.com/administration/upgrade.html#upgrading-to-the-latest-version)
 - At step 3, choose MM Team Edition.
+- At step 6.1, backup MySql database using command:
+```bash
+mysql -u mmuser -p mattermost > dsv_database_bck.sql
+```
 
 ## Build from source code
 
@@ -41,20 +45,25 @@
 
 # Upgrading Mattermost webapp
 
+:exclamation: Skip this step when you upgrade by using Mm release and dont need to custom client.
+
 ### 1. Follow steps at [MM's Dev Webapp Setup Guide](https://developers.mattermost.com/contribute/webapp/developer-setup/)
 - Make sure your webapp is installed.
 
-### 2. Run command:
+### 2. (Optional) Follow steps at [Customizing MM Webapp](https://developers.mattermost.com/extend/customization/webapp/) to custom client.
+
+### 3. Run command:
 ```bash
+#create client
 make package
 ```
 
-### 3. Transfer your webapp package to server at location `/opt/mattermost`
+### 4. Transfer your webapp package to server at location `/opt/mattermost`
 ```bash
 # transfer file
 scp -r mattermost-webapp.tar.gz <user>@<server_address>:/opt/mattermost/
 ```
-### 4. Extract webapp
+### 5. Extract webapp
 ```bash
 #extract
 tar -xf mattermost-webapp.tar.gz
