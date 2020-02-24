@@ -45,7 +45,7 @@ mysql -u mmuser -p mattermost > dsv_database_bck.sql
 
 # Upgrading Mattermost webapp
 
-:exclamation: Skip this step when you upgrade by using MM release and don't need to customize client.
+:exclamation: Skip this step when you upgrade using MM release and don't need client customization.
 
 ### 1. Follow steps at [MM's Dev Webapp Setup Guide](https://developers.mattermost.com/contribute/webapp/developer-setup/)
 - Make sure your webapp is installed.
