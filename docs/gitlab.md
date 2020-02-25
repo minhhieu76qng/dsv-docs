@@ -36,9 +36,9 @@ In Mattermost 5.12 and later, the GitLab plugin is included in the Plugin Market
 You're all set! To test it, run the `/gitlab connect` slash command to connect your Mattermost account with GitLab.
 
 ## Usage
-- Before using any slash commands, you need to connect your Github account and Mattermost `/github connect`
-- Using `/github help` slash command to show all supported commands.
-- You can subscribe multiple repositories in each channel via `/github subscribe [owner]/[repo] [features] [flags]`
+- Before using any slash commands, you need to connect your GitLab account and Mattermost `/gitlab connect`
+- Using `/gitlab help` slash command to show all supported commands.
+- You can subscribe multiple repositories in each channel via `/gitlab subscribe [owner]/[repo] [features] [flags]`
 
 ## Testing
 ### GitLab plugin testing

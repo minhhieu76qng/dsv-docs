@@ -60,6 +60,23 @@ You're all set! To test it, run the `/github connect` slash command to connect y
 - Using `/github help` slash command to show all supported commands.
 - You can subscribe multiple repositories in each channel via `/github subscribe [owner]/[repo] [features] [flags]`
 
+## Testing
+### Github plugin testing
+1. Navigate to project page and select **Settings > Webhooks** then select your Mattermost webhook.
+2. In *Recent Deliveries* section, you can redeliver actions which you have sent.
+
+### Supported events
+Github supports a lot of events, but Mattermost plugin Github is not. Supported events are listed below:
+|Events|Work|Not work|Not test|Note|
+|---|:---:|:---:|:---:|---|
+Branch or tag creation|:heavy_check_mark:
+Branch or tag deletion|:heavy_check_mark:
+Issues comments|:heavy_check_mark:
+Issues|:heavy_check_mark:|||Work: `issue opened, closed`
+Pull requests|:heavy_check_mark:|||Work: `PR opened, closed`
+Pull request review|:heavy_check_mark:|||Work: `PR reviews submitted`
+Pushes|:heavy_check_mark:
+
 ## Issues
 
 Description|Reason|Solution
