@@ -1,3 +1,7 @@
+## Installation
+
+In Mattermost 5.16 and later, the GitHub plugin is included in the Plugin Marketplace which can be accessed from Main Menu > Plugins Marketplace. 
+
 ## Configuration
 
 :exclamation: If you only need to add new repository to webhook, just folow **step 2**.
@@ -52,34 +56,10 @@ You're all set! To test it, run the `/github connect` slash command to connect y
 
 
 ## Usage
+- Before using any slash commands, you need to connect your Github account and Mattermost `/github connect`
+- Using `/github help` slash command to show all supported commands.
+- You can subscribe multiple repositories in each channel via `/github subscribe [owner]/[repo] [features] [flags]`
 
-- `/github help`
-- `/github connect` - Connect your Mattermost account to your GitHub account
-- `/github disconnect` - Disconnect your Mattermost account from your GitHub account
-- `/github todo` - Get a list of unread messages and pull requests awaiting your review
-- `/github subscribe list` - Will list the current channel subscriptions
-- `/github subscribe [owner]/[repo] [features] [flags]` - Subscribe the current channel to receive notifications about opened pull requests and issues for an organization or repository
-  - `owner`: organization name.
-  - `repo`: repository name.
-  - `features` is a comma-delimited list of one or more the following:
-    - `issues` - includes new and closed issues
-    - `pulls` - includes new and closed pull requests
-    - `pushes` - includes pushes
-    - `creates` - includes branch and tag creations
-    - `deletes` - includes branch and tag deletions
-    - `issue_comments` - includes new issue comments
-    - `pull_reviews` - includes pull request reviews
-    - `label:"<labelname>"` - must include "pulls" or "issues" in feature list when using a label
-    Defaults to "pulls,issues,creates,deletes"
-  - `flags` currently supported: 
-    - --exclude-org-member - events triggered by organization members will not be delivered (the Github organization config should be set, otherwise this flag has not effect)
-- `/github unsubscribe owner/repo` - Unsubscribe the current channel from a repository
-- `/github me` - Display the connected GitHub account
-- `/github settings [setting] [value]` - Update your user settings
-  - `setting` can be "notifications" or "reminders"
-  - `value` can be "on" or "off"
-
-:exclamation: Default feature doesn't have `pushes`.
 ## Issues
 
 Description|Reason|Solution
