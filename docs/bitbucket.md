@@ -103,7 +103,7 @@ deactivate
 ```
 
 #### 7. Create a `systemd` Unit File
-It allows Ubuntu to automatically start Gunicorn and serve our Flask application whenever the server boots.</br>
+It allows Ubuntu to automatically start Gunicorn and serves our Flask application whenever the server boots.</br>
 
 Create a unit file ending in .service within the /etc/systemd/system directory to begin:
 
