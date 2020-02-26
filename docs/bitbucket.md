@@ -201,6 +201,16 @@ Now, when you do actions with you repository, Bitbucket will fire event to Matte
 
 
 ## Testing
+
+### Bitbucket plugin testing
+1. Go to repository page, select **Settings > Webhooks**.
+2. At your Bitbucket Webhook record, select **View requests**
+3. And you can resend any requests in table.
+
+:exclamation: If **Request history collection** is off, please turn on it and press **Load new requests** button.
+
+
+### Supported events
 Events|Work|Not Work|Not test|Note
 ---|:---:|:---:|:---:|---
 Repository push|:heavy_check_mark:
