@@ -25,10 +25,23 @@ sudo apt-get install python3-pip python3-dev nginx
     - port: 8989
   - Mattermost server_url and the user name or icon to override the webhook with if desired.
   - And the base url of your Bitbucket server. (Leave empty to use BitBucket Cloud)
-- Rename `bitbucket.py` to `app.py`
+- Rename `bitbucket.py` to `app.py`</br>
 
+:exclamation: Due to Bitbucket APIs have changed, old source code has some errors. To fix it, follow those steps:
+- Edit `helper.py`:
+    - `pullrequest:declined` =>  `pullrequest:rejected`
+- Edit `app.py`:
+    ```python
+    # from
+    if event_key == 'pullrequest:comment_deleted':
+        attachment["fields"] = {}
 
-#### 2. Create *virtualenv*
+    # to
+    if event_key == 'pullrequest:comment_deleted':
+        attachment["fields"] = []
+    ```
+
+#### 3. Create *virtualenv*
 Install virtualenv in python3:
 ```bash
 sudo pip3 install virtualenv
@@ -43,7 +56,7 @@ Activate virtualenv:
 source bitbucket-envs/bin/activate
 ```
 
-#### 3. Setup Flask application
+#### 4. Setup Flask application
 **Install Flask, requests and Gunicorn**
 ```bash
 pip install flask gunicorn requests
@@ -56,7 +69,7 @@ python3 app.py
 
 If terminal display `Running on http://0.0.0.0:9000/ (Press CTRL+C to quit)`, go to next step.
 
-#### 4. Create the WSGI Entry Point
+#### 5. Create the WSGI Entry Point
 Next, we’ll create a file that will serve as the entry point for our application. This will tell our Gunicorn server how to interact with the application.
 
 ```bash
@@ -78,7 +91,7 @@ bitbucket-webhook
             |_________ bitbucket-envs
 ```
 
-#### 5. Testing Gunicorn’s Ability to Serve the Project
+#### 6. Testing Gunicorn’s Ability to Serve the Project
 ```bash
 gunicorn --bind 0.0.0.0:5000 wsgi:app
 ```
@@ -89,7 +102,7 @@ Deactivate virtualenv:
 deactivate
 ```
 
-#### 6. Create a `systemd` Unit File
+#### 7. Create a `systemd` Unit File
 It allow Ubuntu to automatically start Gunicorn and serve our Flask application whenever the server boots.</br>
 
 Create a unit file ending in .service within the /etc/systemd/system directory to begin:
@@ -138,7 +151,7 @@ bitbucket-webhook
             |_________ app.sock
 ```
 
-#### 7. Finnal step: Configuring nginx
+#### 8. Final step: Configuring nginx
 ```bash
 cd /etc/nginx
 nano /etc/nginx/sites-avalable/default
