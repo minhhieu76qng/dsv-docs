@@ -76,10 +76,3 @@ Issues|:heavy_check_mark:|||Work: `issue opened, closed`
 Pull requests|:heavy_check_mark:|||Work: `PR opened, closed`
 Pull request review|:heavy_check_mark:|||Work: `PR reviews submitted`
 Pushes|:heavy_check_mark:
-
-## Issues
-
-Description|Reason|Solution
------------|------|--------
-Type `/github connect`, click the link and get `Not authorized`|Maybe we need to use company's email to connect.|In Github **Settings**, select **Emails** and enter Designveloper email to *Add email address* then press **Add** and verify email.
-
