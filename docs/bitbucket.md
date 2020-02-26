@@ -1,7 +1,7 @@
 ## Install Bitbucket Webhook Server
 
 #### 1. Update your local package index and then install the packages.
-Make sure you installed python3 on your machine.</br>
+Make sure you have installed python3 on your machine.</br>
 For Python3:
 ```bash
 # update local packages
@@ -16,7 +16,7 @@ sudo apt-get install python3-pip python3-dev nginx
     ```bash
     cd /opt
     ```
-- Clone this repository to your machine: git clone https://github.com/cvitter/mattermost-bitbucket-bridge.git
+- Clone this repository to your machine: `git clone https://github.com/cvitter/mattermost-bitbucket-bridge.git`
 - Rename folder to `bitbucket-webhook`
 - In **bitbucket-webhook** folder, make a copy of `config.sample`: `cp config.sample config.json`
 - Edit `config.json` to update the following fields as needed:
@@ -27,7 +27,7 @@ sudo apt-get install python3-pip python3-dev nginx
   - And the base url of your Bitbucket server. (Leave empty to use BitBucket Cloud)
 - Rename `bitbucket.py` to `app.py`</br>
 
-:exclamation: Due to Bitbucket APIs have changed, old source code has some errors. To fix it, follow those steps:
+:exclamation: Due to Bitbucket API has changed, old source code caused some issues. To fix it, follow those steps:
 - Edit `helper.py`:
     - `pullrequest:declined` =>  `pullrequest:rejected`
 - Edit `app.py`:
@@ -67,7 +67,7 @@ Run your application
 python3 app.py
 ```
 
-If terminal display `Running on http://0.0.0.0:9000/ (Press CTRL+C to quit)`, go to next step.
+If terminal shows `Running on http://0.0.0.0:9000/ (Press CTRL+C to quit)`, go to next step.
 
 #### 5. Create the WSGI Entry Point
 Next, we’ll create a file that will serve as the entry point for our application. This will tell our Gunicorn server how to interact with the application.
@@ -96,7 +96,7 @@ bitbucket-webhook
 gunicorn --bind 0.0.0.0:5000 wsgi:app
 ```
 
-If terminal show `Listening at: http://0.0.0.0:5000 (12204)`, it work.</br>
+If terminal shows `Listening at: http://0.0.0.0:5000 (12204)`, it works.</br>
 Deactivate virtualenv:
 ```bash
 deactivate
@@ -197,7 +197,7 @@ sudo ufw allow 'Nginx Full'
     - **URL**: the URL of Bibucket webhook server like `http://128.199.168.53/bitbucket/hooks/<hook_id>`.
     - **Triggers**: select **Choose from a full list of triggers** and choose actions you want.
 4. Press **Save**.
-Now, when you do actions with you repository, Bitbucket will fire event to Mattermost channel which you setup before.
+Now, when you execute actions (push, PR,...) with you repository, Bitbucket will fire event to Mattermost channel which you setup before.
 
 
 ## Testing
