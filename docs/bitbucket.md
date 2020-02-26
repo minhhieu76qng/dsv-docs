@@ -16,10 +16,10 @@ sudo apt-get install python3-pip python3-dev nginx
     ```bash
     cd /opt
     ```
-- Clone this repository to your machine: `git clone https://github.com/cvitter/mattermost-bitbucket-bridge.git`
-- Rename folder to `bitbucket-webhook`
+- Clone this repository to your computer: `git clone https://github.com/cvitter/mattermost-bitbucket-bridge.git`
+- Rename the folder to `bitbucket-webhook`
 - In **bitbucket-webhook** folder, make a copy of `config.sample`: `cp config.sample config.json`
-- Edit `config.json` to update the following fields as needed:
+- Edit `config.json` to update following fields as needed:
   - Application host address and port (generally debug should be left set to false).
     - host: 0.0.0.0
     - port: 8989
@@ -70,7 +70,7 @@ python3 app.py
 If terminal shows `Running on http://0.0.0.0:9000/ (Press CTRL+C to quit)`, go to next step.
 
 #### 5. Create the WSGI Entry Point
-Next, we’ll create a file that will serve as the entry point for our application. This will tell our Gunicorn server how to interact with the application.
+Next, we’ll create a file that serve as the entry point for our application. This will tell our Gunicorn server how to interact with the application.
 
 ```bash
 nano wsgi.py
@@ -103,7 +103,7 @@ deactivate
 ```
 
 #### 7. Create a `systemd` Unit File
-It allow Ubuntu to automatically start Gunicorn and serve our Flask application whenever the server boots.</br>
+It allows Ubuntu to automatically start Gunicorn and serve our Flask application whenever the server boots.</br>
 
 Create a unit file ending in .service within the /etc/systemd/system directory to begin:
 
@@ -156,7 +156,7 @@ bitbucket-webhook
 cd /etc/nginx
 nano /etc/nginx/sites-avalable/default
 ```
-Paste below code to `default` (must be below `location / {...}`):
+Paste below code to `default` (must follow `location / {...}`):
 ```nginx
 location /bitbucket {
     rewrite ^/bitbucket(.*) $1 break;
@@ -165,7 +165,7 @@ location /bitbucket {
 }
 ```
 
-Check syntax errors by: `nginx -t`. If it's ok, we cant restart nginx service
+Check syntax errors by: `nginx -t`. If it's ok, we can restart nginx service
 ```bash
 systemctl restart nginx
 ```
@@ -186,7 +186,7 @@ sudo ufw allow 'Nginx Full'
     - **Username**: the display name.
     - **Profile Picture**: avatar of the integration. This is a **URL** of `.png` or `.jpg` file at least 128px by 128px.
 4. Click **Save**
-5. Setup successful and you will see a URL like `https://chat.designveloper.com/hooks/<hook_id>`, copy this `hook_id` and click **Done**.
+5. Setup successfully and you will see a URL like `https://chat.designveloper.com/hooks/<hook_id>`, copy this `hook_id` and click **Done**.
 
 
 ### Configure Bitbucket repository
