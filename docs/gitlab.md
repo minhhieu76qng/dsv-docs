@@ -63,3 +63,6 @@ Events|Work|Not work|Not test|Note
 |Job events|||:x:
 |Pipeline events|||:x:
 |Wiki page events|||:x:
+
+## Reference
+1. https://github.com/mattermost/mattermost-plugin-gitlab

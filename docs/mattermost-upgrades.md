@@ -17,7 +17,7 @@
 - At step 3, choose MM Team Edition.
 - At step 6.1, backup MySql database using command:
 ```bash
-mysql -u mmuser -p mattermost > dsv_database_bck.sql
+mysqldump -u mmuser -p mattermost > dsv_database_bck.sql
 ```
 
 ## Build from source code
