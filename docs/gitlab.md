@@ -43,10 +43,10 @@ You're all set! To test it, run the `/gitlab connect` slash command to connect y
 ## Testing
 ### GitLab plugin testing
 1. Navigate to project page then select **Settings > Integrations**.
-2. At **Project Hooks** panel, click select box **Test** and choose event.
-:exclamation: Some event only works when you turn on feature.
-Ex: You must turn on **Issues** before using **Issue events**
-:exclamation: Some events fire and get HTTP status 200 but nothing in Mattermost. But if you do actions with your repository, it work.
+2. At **Project Hooks** panel, click select box **Test** and choose event.</br>
+:exclamation: Some event only works when you turn on feature.</br>
+Ex: You must turn on **Issues** before using **Issue events**</br>
+:exclamation: Some events fire and get HTTP status 200 but nothing in Mattermost. But if you do actions with your repository, it work.</br>
 Ex: create Merge Request in GitLab
 
 ### Supported events
@@ -56,10 +56,10 @@ Events|Work|Not work|Not test|Note
 |Push events|:heavy_check_mark:|
 |Tag push event|:heavy_check_mark:|
 |Comments|:heavy_check_mark:|||Work: `Merge Request comments`, `Issues comments`</br>Not work: `Commit comments`
-|Confidental Comments||:heavy_check_mark:||Status code 400 in GitLab Recent Deliveries
+|Confidental Comments||:x:||Status code 400 in GitLab Recent Deliveries
 |Issues events|:heavy_check_mark:
-|Confidental issues events||:heavy_check_mark:||Status code 400 in GitLab Recent Deliveries
+|Confidental issues events||:x:||Status code 400 in GitLab Recent Deliveries
 |Merge request events|:heavy_check_mark:|||Work: `open`, `close`, `re-open`, `merge`
-|Job events|||:heavy_check_mark:
-|Pipeline events|||:heavy_check_mark:
-|Wiki page events|||:heavy_check_mark:
+|Job events|||:x:
+|Pipeline events|||:x:
+|Wiki page events|||:x:
