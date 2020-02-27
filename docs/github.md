@@ -4,7 +4,7 @@ In Mattermost 5.16 and later, the GitHub plugin is included in the Plugin Market
 
 ## Configuration
 
-:exclamation: If you only need to add new repository to webhook, just folow **step 2**.
+:exclamation: If you only need to add a new repository to webhook, just follow **step 2**.
 
 ### Step 1: Register an OAuth application in GitHub
 
@@ -62,7 +62,7 @@ You're all set! To test it, run the `/github connect` slash command to connect y
 
 ## Testing
 ### Github plugin testing
-1. Navigate to project page and select **Settings > Webhooks** then select your Mattermost webhook.
+1. Navigate to the project page and select **Settings > Webhooks** then select your Mattermost webhook.
 2. In *Recent Deliveries* section, you can redeliver actions which you have sent.
 
 ### Supported events

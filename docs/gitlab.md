@@ -19,7 +19,7 @@ In Mattermost 5.12 and later, the GitLab plugin is included in the Plugin Market
     - Generate a new value for **Webhook Secret**. Copy it as you will use it in a later step.
     - Generate a new value for **At Rest Encryption Key**.
     - (Optional) **GitLab Group**: Lock the plugin to a single GitLab group by setting this field to the name of your GitLab group.
-    - (Optional) **Enable Private Repositories**: Allow the plugin to receive notifications from private repositories by setting this value to true. When enabled, existing users must reconnect their accounts to gain access to private project. Affected users will be notified by the plugin once private repositories are enabled.
+    - (Optional) **Enable Private Repositories**: Allow the plugin to receive notifications from private repositories by setting this value to true. When enabled, existing users must reconnect their accounts to gain access to private projects. Affected users will be notified by the plugin once private repositories are enabled.
 2. Hit **Save**.
 3. Go to **Plugins Marketplace > GitLab > Configure > Enable Plugin** and click **Enable** to enable the GitLab plugin.
 

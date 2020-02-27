@@ -24,13 +24,15 @@ sudo apt-get install python3-pip python3-dev nginx
     - host: 0.0.0.0
     - port: 8989
   - Mattermost server_url and the user name or icon to override the webhook with if desired.
-  - And the base url of your Bitbucket server. (Leave empty to use BitBucket Cloud)
+  - And the base URL of your Bitbucket server. (Leave empty to use BitBucket Cloud)
 - Rename `bitbucket.py` to `app.py`</br>
 
 :exclamation: Due to Bitbucket API has changed, old source code caused some issues. To fix it, follow those steps:
 - Edit `helper.py`:
     - `pullrequest:declined` =>  `pullrequest:rejected`
+    </br>
 - Edit `app.py`:
+</br>
     ```python
     # from
     if event_key == 'pullrequest:comment_deleted':
@@ -67,10 +69,10 @@ Run your application
 python3 app.py
 ```
 
-If terminal shows `Running on http://0.0.0.0:9000/ (Press CTRL+C to quit)`, go to next step.
+If the terminal shows `Running on http://0.0.0.0:9000/ (Press CTRL+C to quit)`, go to the next step.
 
 #### 5. Create the WSGI Entry Point
-Next, we’ll create a file that serve as the entry point for our application. This will tell our Gunicorn server how to interact with the application.
+Next, we’ll create a file that serves as the entry point for our application. This will tell our Gunicorn server how to interact with the application.
 
 ```bash
 nano wsgi.py
@@ -96,7 +98,7 @@ bitbucket-webhook
 gunicorn --bind 0.0.0.0:5000 wsgi:app
 ```
 
-If terminal shows `Listening at: http://0.0.0.0:5000 (12204)`, it works.</br>
+If the terminal shows `Listening at: http://0.0.0.0:5000 (12204)`, it works.</br>
 Deactivate virtualenv:
 ```bash
 deactivate
@@ -110,7 +112,7 @@ Create a unit file ending in .service within the /etc/systemd/system directory t
 ```bash
 sudo nano /etc/systemd/system/bitbucket.service
 ```
-Copy below text to `bitbucket.service`, then save and close file.
+Copy below text to `bitbucket.service`, then save and close the file.
 ```
 [Unit]
 #  specifies metadata and dependencies
@@ -197,15 +199,15 @@ sudo ufw allow 'Nginx Full'
     - **URL**: the URL of Bibucket webhook server like `http://128.199.168.53/bitbucket/hooks/<hook_id>`.
     - **Triggers**: select **Choose from a full list of triggers** and choose actions you want.
 4. Press **Save**.
-Now, when you execute actions (push, PR,...) with you repository, Bitbucket will fire event to Mattermost channel which you setup before.
+Now, when you execute actions (push, PR,...) with your repository, Bitbucket will fire event to Mattermost channel which you setup before.
 
 
 ## Testing
 
 ### Bitbucket plugin testing
-1. Go to repository page, select **Settings > Webhooks**.
+1. Go to the repository page, select **Settings > Webhooks**.
 2. At your Bitbucket Webhook record, select **View requests**
-3. And you can resend any requests in table.
+3. And you can resend any requests on the table.
 
 :exclamation: If **Request history collection** is off, please turn on it and press **Load new requests** button.
 
